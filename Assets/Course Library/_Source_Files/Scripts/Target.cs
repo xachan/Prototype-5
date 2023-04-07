@@ -11,7 +11,7 @@ public class Target : MonoBehaviour
     private float maxTorque = 10;
     private float xRange = 4;
     private float ySpawnPos = -2;
-    
+
 
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class Target : MonoBehaviour
 
         transform.position = RandomSpawnPos();
 
-
+    }
 
         // Update is called once per frame
         void Update()
@@ -32,14 +32,14 @@ public class Target : MonoBehaviour
 
         }
 
-         void OnMouseDown()
+        private void OnMouseDown()
         {
             Destroy(gameObject);
         }
 
-       void OnMouseUp ()
+       private void OnTriggerEnter(Collider other)
         {
-        
+        Destroy(gameObject);
         }
 
     Vector3 RandomForce()
@@ -58,4 +58,3 @@ public class Target : MonoBehaviour
         }
 
     }
-}
