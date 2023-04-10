@@ -6,6 +6,7 @@ public class Target : MonoBehaviour
 {
 
     private Rigidbody targetRb;
+    private GameManager gameManager;
     private float minSpeed = 12;
     private float maxSpeed = 16;
     private float maxTorque = 10;
