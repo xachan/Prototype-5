@@ -30,25 +30,29 @@ public class Target : MonoBehaviour
 
     }
 
-        // Update is called once per frame
-        void Update()
-        {
+    // Update is called once per frame
+    void Update()
+    {
 
-        }
+    }
 
-        private void OnMouseDown()
+    private void OnMouseDown()
+    {
+        if (gameManager.isGameActive)
         {
             Destroy(gameObject);
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-        
-
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             gameManager.UpdateScore(pointValue);
-        
+
         }
+    }
 
        private void OnTriggerEnter(Collider other)
         {
-        Destroy(gameObject);
+             Destroy(gameObject);
+            gameManager.GameOver();
+        
+
         }
 
     Vector3 RandomForce()
