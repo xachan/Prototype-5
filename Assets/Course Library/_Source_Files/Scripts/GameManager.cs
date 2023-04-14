@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Button restartButton;
     public GameObject titleScreen;
     public bool isGameActive;
+    public int difficulty;
     private int score;
     private float spawnRate = 1.0f;
 
@@ -59,10 +60,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public  void StartGame()
+    public  void StartGame(int difficulty)
     {
         isGameActive = true;
         score = 0;
+        spawnRate /= difficulty;
+
         StartCoroutine(SpawnTarget());
         UpdateScore(0);
 
